@@ -8,14 +8,17 @@
 <link rel="stylesheet" href="style.css">
 
 <body>
-<div class="bgimg w3-display-container w3-text-white">
-  <div class="w3-display-middle w3-jumbo">
-    <p>Resto</p>
-  </div>
+    <div class="bgimg w3-display-container w3-text-white">
+      <div class="w3-display-middle w3-jumbo">
+        <p>Resto</p>
+      </div>
+    <div class="bgimg w3-display-container w3-text-white">
   <div class="w3-right w3-container w3-xlarge">
     <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-black">Menu Card</button></p>
     <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">Reservation</button></p>
   </div>
+</div>
+
   <div class="w3-display-bottomleft w3-container">
     <p class="w3-xlarge">Monday-Friday: 10am-11pm</p>
   </div>
@@ -60,6 +63,7 @@
   </div>
 </div>
 
+
 <!-- Contact Modal -->
 <div id="contact" class="w3-modal">
   <div class="w3-modal-content w3-animate-zoom">
@@ -70,17 +74,23 @@
     </div>
     <div class="w3-container">
       <p>Reserve a table, ask for today's special or just send us a message:</p>
-      <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-        <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="Number of people" required name="People"></p>
-        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
-        <p><button class="w3-button" type="submit">SEND MESSAGE</button></p>
+
+      <form id="contactForm" action="" method="GET">
+        <p><input id="name" class="w3-input w3-padding-16 w3-border" placeholder="Name" type="text" required ></p>
+        <p><input id="people" class="w3-input w3-padding-16 w3-border" placeholder="Numer of People" type="number" required></p>
+        <p><input id="datetime" class="w3-input w3-padding-16 w3-border" type="datetime-local" required value="2017-11-16T20:00"></p>
+        <p><input id="message" class="w3-input w3-padding-16 w3-border" placeholder="Message" type="text" placeholder="Message" required></p>
+        <p><button class="w3-button" onclick="mysubmission()" type="submit">SEND MESSAGE</button></p>
       </form>
     </div>
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script> 
+<script src="main.js"></script>
 </body>
 </html>
-
