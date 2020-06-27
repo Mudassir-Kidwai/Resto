@@ -1,4 +1,4 @@
-var firebaseConfig = {
+    var firebaseConfig = {
     apiKey: "AIzaSyCcG1gD0kWadkIkJzo5tqSJrmxRVMUaVv4",
     authDomain: "resto-18fd8.firebaseapp.com",
     databaseURL: "https://resto-18fd8.firebaseio.com",
@@ -12,17 +12,26 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);   
   firebase.analytics();
 
-var messagesRef = firebase.database().ref('contactformmessages');
-function mysubmission(){
-    var name = document.getElementById('name').value;
-    var people = document.getElementById('people').value;
-    var datetime = document.getElementById('datetime').value;
-    var message = document.getElementById('message').value;
-    var newMessageRef = messagesRef.push();
-    newMessageRef.set({
-        name: name,
-        people: people,
-        datetime: datetime,
-        message: message
-    })
-}
+  var messagesRef = firebase.database().ref('contactformmessages');
+
+  function mysubmission(){
+      var name = inputValues('name');
+      var people = inputValues('people');
+      var datetime = inputValues('datetime');
+      var message = inputValues('message');
+      pushValuesToFirebase(name, people, datetime, message);
+  }
+  
+  function inputValues(id){
+      return document.getElementById(id).value;
+  }
+  
+  function pushValuesToFirebase(name, people, datetime, message){
+      var newMessageRef = messagesRef.push();
+      newMessageRef.set({
+          name: name,
+          people: people,
+          datetime: datetime,
+          message: message
+      })
+  }
